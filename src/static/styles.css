@@ -28,16 +28,27 @@ header h1 {
   margin-bottom: 10px;
 }
 
+
 main {
   display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
   justify-content: center;
 }
 
-@media (min-width: 768px) {
-  main {
-    grid-template-columns: 2fr 1fr;
+.activities-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 600px) {
+  .activities-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 900px) {
+  .activities-grid {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
@@ -47,22 +58,80 @@ section {
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 500px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 section h3 {
-  margin-bottom: 20px;
+  margin-bottom: 28px;
   padding-bottom: 10px;
-  border-bottom: 1px solid #ddd;
-  color: #1a237e;
+  border-bottom: 2.5px solid #00bcd4;
+  color: #3949ab;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.section-icon {
+  font-size: 2.1rem;
+  vertical-align: middle;
 }
 
+
 .activity-card {
-  margin-bottom: 15px;
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 28px 20px 20px 20px;
+  border: none;
+  border-radius: 16px;
+  background: linear-gradient(120deg, #e3f2fd 0%, #e0f7fa 100%);
+  box-shadow: 0 4px 24px rgba(0,188,212,0.10);
+  transition: box-shadow 0.2s, transform 0.2s;
+  position: relative;
+}
+
+.activity-card:hover {
+  box-shadow: 0 8px 32px rgba(0,188,212,0.18);
+  transform: translateY(-4px) scale(1.02);
+}
+
+.activity-card h4 {
+  margin-bottom: 10px;
+  color: #00bcd4;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.activity-icon {
+  font-size: 1.5rem;
+  vertical-align: middle;
+}
+
+.activity-card p {
+  margin-bottom: 8px;
+}
+
+.activity-card .signup-btn {
+  margin-top: 16px;
+  padding: 12px 22px;
+  background: linear-gradient(90deg, #00bcd4 0%, #3949ab 100%);
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(0,188,212,0.10);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.activity-card .signup-btn:hover {
+  background: linear-gradient(90deg, #3949ab 0%, #00bcd4 100%);
+  box-shadow: 0 4px 16px rgba(0,188,212,0.18);
 }
 
 .activity-card h4 {
@@ -74,11 +143,41 @@ section h3 {
   margin-bottom: 8px;
 }
 
-/* New styles for participants section */
+/* Participants section */
 .participants-container {
   margin-top: 15px;
   padding-top: 12px;
-  border-top: 1px dashed #ccc;
+}
+
+/* Message styles */
+#message.success {
+  color: #388e3c;
+  background: linear-gradient(90deg, #e8f5e9 0%, #b2dfdb 100%);
+  border: 1.5px solid #388e3c;
+  padding: 12px 18px;
+  border-radius: 8px;
+  margin-top: 18px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+#message.error {
+  color: #c62828;
+  background: linear-gradient(90deg, #ffebee 0%, #ffe0e0 100%);
+  border: 1.5px solid #c62828;
+  padding: 12px 18px;
+  border-radius: 8px;
+  margin-top: 18px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+#message.hidden {
+  display: none;
 }
 
 .participants-section h5 {
@@ -197,4 +296,45 @@ footer {
   margin-top: 30px;
   padding: 20px;
   color: #666;
+}
+
+.activity-card .signup-email {
+  margin-top: 14px;
+  margin-bottom: 0;
+  padding: 14px 18px 14px 44px;
+  border: 2px solid #00bcd4;
+  border-radius: 24px;
+  font-size: 1.08rem;
+  background: #f5fafd url('data:image/svg+xml;utf8,<svg fill="%2300bcd4" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2v.01L12 13 4 6.01V6h16zm0 12H4V8.99l8 7 8-7V18z"/></svg>') no-repeat 16px center;
+  background-size: 20px 20px;
+  color: #222;
+  box-shadow: 0 2px 8px rgba(0,188,212,0.07);
+  transition: border 0.2s, box-shadow 0.2s;
+}
+.activity-card .signup-email:focus {
+  border: 2.5px solid #3949ab;
+  outline: none;
+  background-color: #e3f2fd;
+  box-shadow: 0 4px 16px rgba(0,188,212,0.13);
+}
+
+.signup-message {
+  margin-bottom: 8px;
+  font-size: 1rem;
+  color: #c62828;
+  background: linear-gradient(90deg, #ffebee 0%, #ffe0e0 100%);
+  border: 1.5px solid #c62828;
+  border-radius: 8px;
+  padding: 8px 14px;
+  display: none;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+.signup-message.error {
+  display: flex;
+}
+.signup-message.hidden {
+  display: none !important;
 }
